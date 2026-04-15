@@ -1,0 +1,841 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .mg-root {
+    background: #F9F9F9;
+    color: #1A1A1A;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .mg-serif { font-family: 'Cormorant Garamond', serif; }
+  .mg-sans { font-family: 'Montserrat', sans-serif; }
+
+  /* ANNOUNCEMENT BAR */
+  .mg-bar {
+    background: #1A1A1A;
+    color: #F9F9F9;
+    text-align: center;
+    padding: 9px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .mg-bar span { color: #D4AF37; font-weight: 600; }
+
+  /* HEADER */
+  .mg-header {
+    background: #F9F9F9;
+    border-bottom: 0.5px solid #e0e0e0;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .mg-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: #1A1A1A;
+    text-transform: uppercase;
+  }
+  .mg-logo-dot { color: #D4AF37; }
+  .mg-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .mg-nav a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1A1A1A;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1.5px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+  .mg-nav a:hover { border-color: #D4AF37; }
+  .mg-header-icons {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  .mg-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #1A1A1A;
+    padding: 4px;
+  }
+
+  /* HERO */
+  .mg-hero {
+    background: #1A1A1A;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 64px 32px;
+    position: relative;
+  }
+  .mg-hero-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 20px;
+  }
+  .mg-hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px;
+    font-weight: 300;
+    color: #F9F9F9;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    max-width: 640px;
+  }
+  .mg-hero-title em {
+    font-style: italic;
+    color: #D4AF37;
+  }
+  .mg-hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(249,249,249,0.65);
+    max-width: 420px;
+    margin: 0 auto 36px;
+    line-height: 1.8;
+  }
+  .mg-hero-cta {
+    display: inline-block;
+    background: #D4AF37;
+    color: #1A1A1A;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .mg-hero-cta:hover { background: #c9a430; }
+  .mg-hero-scroll {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(249,249,249,0.35);
+  }
+
+  /* SECTION COMMON */
+  .mg-section {
+    padding: 72px 32px;
+  }
+  .mg-section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 10px;
+  }
+  .mg-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: #1A1A1A;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .mg-section-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #555;
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+  .mg-divider {
+    width: 36px;
+    height: 1.5px;
+    background: #D4AF37;
+    margin: 16px 0 40px;
+  }
+
+  /* BRAND STRIP */
+  .mg-brand-strip {
+    background: #1A1A1A;
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .mg-brand-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(249,249,249,0.55);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mg-brand-value::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: #D4AF37;
+  }
+
+  /* PRODUCTS */
+  .mg-products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .mg-product-card {
+    cursor: pointer;
+  }
+  .mg-product-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: #EBEBEB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mg-product-img-inner {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #aaa;
+    text-align: center;
+  }
+  .mg-product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #D4AF37;
+    color: #1A1A1A;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+  }
+  .mg-product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: #1A1A1A;
+    margin-bottom: 4px;
+  }
+  .mg-product-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  .mg-product-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+  }
+  .mg-product-btn {
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    background: #1A1A1A;
+    color: #F9F9F9;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .mg-product-btn:hover { background: #D4AF37; color: #1A1A1A; }
+
+  /* MANIFESTO */
+  .mg-manifesto {
+    background: #1A1A1A;
+    padding: 80px 32px;
+    text-align: center;
+  }
+  .mg-manifesto-cross {
+    font-size: 18px;
+    color: #D4AF37;
+    margin-bottom: 28px;
+    letter-spacing: 0.3em;
+  }
+  .mg-manifesto-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 300;
+    font-style: italic;
+    color: #F9F9F9;
+    line-height: 1.2;
+    max-width: 600px;
+    margin: 0 auto 24px;
+  }
+  .mg-manifesto-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(249,249,249,0.6);
+    max-width: 500px;
+    margin: 0 auto 36px;
+    line-height: 1.9;
+  }
+  .mg-manifesto-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    text-decoration: none;
+    border-bottom: 0.5px solid #D4AF37;
+    padding-bottom: 2px;
+    cursor: pointer;
+  }
+
+  /* FRETE BANNER */
+  .mg-frete {
+    background: #D4AF37;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .mg-frete-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mg-frete-sep { color: rgba(26,26,26,0.3); font-size: 18px; font-weight: 300; }
+
+  /* DEPOIMENTOS */
+  .mg-depo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .mg-depo-card {
+    border: 0.5px solid #e0e0e0;
+    padding: 28px 24px;
+    background: #fff;
+  }
+  .mg-depo-stars {
+    color: #D4AF37;
+    font-size: 12px;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+  .mg-depo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: #1A1A1A;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+  .mg-depo-author {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .mg-depo-author span {
+    color: #D4AF37;
+    margin-right: 6px;
+  }
+
+  /* SOBRE */
+  .mg-sobre {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .mg-sobre-img {
+    aspect-ratio: 4/5;
+    background: #EBEBEB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mg-sobre-img-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #aaa;
+    text-align: center;
+    padding: 24px;
+  }
+  .mg-sobre-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+  .mg-sobre-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #1A1A1A;
+    border-left: 2px solid #D4AF37;
+    padding-left: 18px;
+    margin: 28px 0;
+    line-height: 1.5;
+  }
+
+  /* TAMANHOS */
+  .mg-tamanhos {
+    background: #1A1A1A;
+    padding: 64px 32px;
+    text-align: center;
+  }
+  .mg-tamanhos .mg-section-title { color: #F9F9F9; }
+  .mg-tamanhos .mg-section-sub { color: rgba(249,249,249,0.55); margin: 0 auto 40px; }
+  .mg-size-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .mg-size-header, .mg-size-cell {
+    padding: 10px 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-align: center;
+  }
+  .mg-size-header {
+    background: #D4AF37;
+    color: #1A1A1A;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .mg-size-cell {
+    background: rgba(249,249,249,0.06);
+    color: rgba(249,249,249,0.8);
+  }
+  .mg-size-cell.label {
+    background: rgba(212,175,55,0.12);
+    color: #D4AF37;
+    font-weight: 600;
+  }
+
+  /* NEWSLETTER */
+  .mg-newsletter {
+    text-align: center;
+    padding: 72px 32px;
+    background: #F9F9F9;
+  }
+  .mg-nl-form {
+    display: flex;
+    max-width: 420px;
+    margin: 0 auto;
+    gap: 0;
+  }
+  .mg-nl-input {
+    flex: 1;
+    border: 0.5px solid #1A1A1A;
+    padding: 12px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    background: transparent;
+    outline: none;
+    color: #1A1A1A;
+  }
+  .mg-nl-btn {
+    background: #1A1A1A;
+    color: #F9F9F9;
+    border: none;
+    padding: 12px 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .mg-nl-btn:hover { background: #D4AF37; color: #1A1A1A; }
+  .mg-nl-disclaimer {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 12px;
+  }
+
+  /* FOOTER */
+  .mg-footer {
+    background: #1A1A1A;
+    padding: 48px 32px 24px;
+    color: rgba(249,249,249,0.55);
+  }
+  .mg-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .mg-footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #F9F9F9;
+    margin-bottom: 12px;
+  }
+  .mg-footer-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(249,249,249,0.45);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .mg-footer-col-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 14px;
+  }
+  .mg-footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .mg-footer-links li a {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(249,249,249,0.5);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .mg-footer-links li a:hover { color: #F9F9F9; }
+  .mg-footer-bottom {
+    border-top: 0.5px solid rgba(249,249,249,0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .mg-footer-copy {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: rgba(249,249,249,0.3);
+  }
+  .mg-footer-selo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #D4AF37;
+  }
+
+  /* MOBILE */
+  @media (max-width: 680px) {
+    .mg-nav { display: none; }
+    .mg-hero-title { font-size: 36px; }
+    .mg-products-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .mg-depo-grid { grid-template-columns: 1fr; }
+    .mg-sobre { grid-template-columns: 1fr; gap: 32px; }
+    .mg-size-grid { grid-template-columns: repeat(3, 1fr); }
+    .mg-footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .mg-section { padding: 48px 20px; }
+    .mg-manifesto { padding: 56px 20px; }
+    .mg-nl-form { flex-direction: column; }
+    .mg-frete { gap: 16px; flex-direction: column; }
+    .mg-brand-strip { gap: 20px; flex-direction: column; }
+  }
+</style>
+
+<div class="mg-root">
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="mg-bar">
+    Frete grátis <span>Sul acima de R$ 199</span> &nbsp;|&nbsp; Frete grátis <span>Sudeste e Centro-Oeste acima de R$ 299</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="mg-header">
+    <div class="mg-logo">Margarida<span class="mg-logo-dot">.</span></div>
+    <nav class="mg-nav">
+      <a>Coleções</a>
+      <a>Nova Estação</a>
+      <a>Sobre Nós</a>
+      <a>Lookbook</a>
+    </nav>
+    <div class="mg-header-icons">
+      <button class="mg-icon-btn" title="Busca">&#9906;</button>
+      <button class="mg-icon-btn" title="Carrinho">&#9671;</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="mg-hero">
+    <p class="mg-hero-eyebrow">Nova Coleção — Primavera 2025</p>
+    <h1 class="mg-hero-title">Vestir a fé<br><em>é um ato de amor.</em></h1>
+    <p class="mg-hero-sub">Peças autorais para jovens que carregam a fé no coração e a identidade na roupa. Feitas com propósito, para durar além da moda.</p>
+    <a class="mg-hero-cta">Explorar a coleção</a>
+    <div class="mg-hero-scroll">Role para descobrir</div>
+  </section>
+
+  <!-- BRAND VALUES -->
+  <div class="mg-brand-strip">
+    <div class="mg-brand-value">Feito no Brasil</div>
+    <div class="mg-brand-value">Tecidos premium</div>
+    <div class="mg-brand-value">Propósito em cada costura</div>
+    <div class="mg-brand-value">Moda que transforma</div>
+  </div>
+
+  <!-- FRETE GRÁTIS -->
+  <div class="mg-frete">
+    <div class="mg-frete-item">&#9672; Frete grátis — Sul acima de R$ 199</div>
+    <div class="mg-frete-sep">|</div>
+    <div class="mg-frete-item">&#9672; Frete grátis — Sudeste e Centro-Oeste acima de R$ 299</div>
+    <div class="mg-frete-sep">|</div>
+    <div class="mg-frete-item">&#9672; Troca grátis em até 30 dias</div>
+  </div>
+
+  <!-- PRODUTOS -->
+  <section class="mg-section">
+    <p class="mg-section-label">Coleção em destaque</p>
+    <h2 class="mg-section-title">Peças que falam<br>por você</h2>
+    <div class="mg-divider"></div>
+    <div class="mg-products-grid">
+
+      <div class="mg-product-card">
+        <div class="mg-product-img">
+          <div class="mg-product-badge">Lançamento</div>
+          <div class="mg-product-img-inner">Foto do produto<br>aqui</div>
+        </div>
+        <div class="mg-product-name">Camiseta Aparecida</div>
+        <div class="mg-product-desc">Algodão 100% premium · Unissex</div>
+        <div class="mg-product-price">R$ 129,90</div>
+        <button class="mg-product-btn">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="mg-product-card">
+        <div class="mg-product-img">
+          <div class="mg-product-img-inner">Foto do produto<br>aqui</div>
+        </div>
+        <div class="mg-product-name">Moletom Ora Pro Nobis</div>
+        <div class="mg-product-desc">Fleece macio · Oversize</div>
+        <div class="mg-product-price">R$ 219,90</div>
+        <button class="mg-product-btn">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="mg-product-card">
+        <div class="mg-product-img">
+          <div class="mg-product-badge">Mais vendido</div>
+          <div class="mg-product-img-inner">Foto do produto<br>aqui</div>
+        </div>
+        <div class="mg-product-name">Camiseta Fiat Lux</div>
+        <div class="mg-product-desc">Algodão penteado · Slim fit</div>
+        <div class="mg-product-price">R$ 119,90</div>
+        <button class="mg-product-btn">Adicionar ao carrinho</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="mg-manifesto">
+    <div class="mg-manifesto-cross">✦ ✦ ✦</div>
+    <h2 class="mg-manifesto-title">"Se é para Deus, deve ser bem feito."</h2>
+    <p class="mg-manifesto-body">A Margarida nasceu da devoção a Nossa Senhora Aparecida e da crença de que a fé pode — e deve — ser expressa com beleza, intenção e identidade. Cada peça é uma oração vestida.</p>
+    <a class="mg-manifesto-link">Conheça nossa história</a>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="mg-section">
+    <p class="mg-section-label">Quem já vestiu</p>
+    <h2 class="mg-section-title">A fé que os<br>nossos clientes sentem</h2>
+    <div class="mg-divider"></div>
+    <div class="mg-depo-grid">
+
+      <div class="mg-depo-card">
+        <div class="mg-depo-stars">★★★★★</div>
+        <p class="mg-depo-text">"Comprei a Camiseta Aparecida para usar no retiro e recebi mais de dez elogios. As pessoas perguntaram onde eu tinha comprado — fico feliz em recomendar."</p>
+        <div class="mg-depo-author"><span>✦</span> Ana Luíza M. — São Paulo, SP</div>
+      </div>
+
+      <div class="mg-depo-card">
+        <div class="mg-depo-stars">★★★★★</div>
+        <p class="mg-depo-text">"Finalmente uma marca que entende que fé e estilo podem andar juntos. O moletom é incrível, o tecido é macio e a mensagem no peito faz todo sentido pra mim."</p>
+        <div class="mg-depo-author"><span>✦</span> Rafael T. — Curitiba, PR</div>
+      </div>
+
+      <div class="mg-depo-card">
+        <div class="mg-depo-stars">★★★★★</div>
+        <p class="mg-depo-text">"Minha filha usa no grupo de jovens e ela diz que se sente representada. Isso para uma mãe não tem preço. Qualidade impecável e entrega rápida."</p>
+        <div class="mg-depo-author"><span>✦</span> Carla B. — Belo Horizonte, MG</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SOBRE A MARCA -->
+  <section class="mg-section" style="background: #fff;">
+    <div class="mg-sobre">
+      <div class="mg-sobre-img">
+        <div class="mg-sobre-img-text">Imagem da marca<br>ou lookbook aqui</div>
+      </div>
+      <div>
+        <p class="mg-section-label">Nossa história</p>
+        <h2 class="mg-section-title">Nascemos da fé.<br>Crescemos pelo propósito.</h2>
+        <div class="mg-divider"></div>
+        <p class="mg-sobre-body">A Margarida surgiu de uma promessa feita diante de Nossa Senhora Aparecida. Uma jovem que queria vestir a fé sem abrir mão do estilo, sem se render ao genérico, sem deixar de ser ela mesma.</p>
+        <blockquote class="mg-sobre-quote">"Vestir-se é um ato de identidade. Quando você veste a fé, você proclama quem você é."</blockquote>
+        <p class="mg-sobre-body">Cada peça é desenvolvida com atenção ao detalhe, ao conforto e à mensagem que carrega. Porque acreditamos que a moda pode ser sagrada quando feita com intenção.</p>
+        <a class="mg-hero-cta" style="margin-top: 8px; display: inline-block;">Ver a coleção completa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABELA DE MEDIDAS -->
+  <section class="mg-tamanhos">
+    <p class="mg-section-label" style="color: #D4AF37;">Guia de medidas</p>
+    <h2 class="mg-section-title">Encontre o seu<br>tamanho ideal</h2>
+    <p class="mg-section-sub">Meça o contorno do busto e compare com a tabela. Em caso de dúvida, prefira o tamanho maior.</p>
+    <div class="mg-size-grid">
+      <div class="mg-size-header">Tamanho</div>
+      <div class="mg-size-header">Busto</div>
+      <div class="mg-size-header">Cintura</div>
+      <div class="mg-size-header">Quadril</div>
+      <div class="mg-size-header">Comprimento</div>
+
+      <div class="mg-size-cell label">PP</div>
+      <div class="mg-size-cell">80–84 cm</div>
+      <div class="mg-size-cell">62–66 cm</div>
+      <div class="mg-size-cell">88–92 cm</div>
+      <div class="mg-size-cell">62 cm</div>
+
+      <div class="mg-size-cell label">P</div>
+      <div class="mg-size-cell">84–88 cm</div>
+      <div class="mg-size-cell">66–70 cm</div>
+      <div class="mg-size-cell">92–96 cm</div>
+      <div class="mg-size-cell">64 cm</div>
+
+      <div class="mg-size-cell label">M</div>
+      <div class="mg-size-cell">88–94 cm</div>
+      <div class="mg-size-cell">70–76 cm</div>
+      <div class="mg-size-cell">96–102 cm</div>
+      <div class="mg-size-cell">66 cm</div>
+
+      <div class="mg-size-cell label">G</div>
+      <div class="mg-size-cell">94–100 cm</div>
+      <div class="mg-size-cell">76–82 cm</div>
+      <div class="mg-size-cell">102–108 cm</div>
+      <div class="mg-size-cell">68 cm</div>
+
+      <div class="mg-size-cell label">GG</div>
+      <div class="mg-size-cell">100–108 cm</div>
+      <div class="mg-size-cell">82–90 cm</div>
+      <div class="mg-size-cell">108–116 cm</div>
+      <div class="mg-size-cell">70 cm</div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="mg-newsletter">
+    <p class="mg-section-label" style="text-align:center;">Comunidade Margarida</p>
+    <h2 class="mg-section-title" style="text-align:center; margin-bottom:10px;">Receba primeiro.<br>Viva a fé com estilo.</h2>
+    <p class="mg-section-sub" style="text-align:center; margin: 0 auto 32px;">Lançamentos, conteúdos exclusivos e ofertas para quem faz parte da nossa comunidade.</p>
+    <div class="mg-nl-form">
+      <input class="mg-nl-input" type="email" placeholder="Seu melhor e-mail" />
+      <button class="mg-nl-btn">Entrar</button>
+    </div>
+    <p class="mg-nl-disclaimer">Sem spam. Só o que importa. Você pode sair quando quiser.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mg-footer">
+    <div class="mg-footer-grid">
+      <div>
+        <div class="mg-footer-logo">Margarida<span style="color:#D4AF37;">.</span></div>
+        <p class="mg-footer-tagline">Moda com propósito para jovens que vivem a fé com identidade. Nascida da devoção a Nossa Senhora Aparecida.</p>
+        <div style="display:flex; gap:14px; margin-top:4px;">
+          <a style="font-family:'Montserrat',sans-serif; font-size:10px; color:rgba(249,249,249,0.45); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer;">Instagram</a>
+          <a style="font-family:'Montserrat',sans-serif; font-size:10px; color:rgba(249,249,249,0.45); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer;">TikTok</a>
+          <a style="font-family:'Montserrat',sans-serif; font-size:10px; color:rgba(249,249,249,0.45); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer;">WhatsApp</a>
+        </div>
+      </div>
+      <div>
+        <p class="mg-footer-col-title">Navegue</p>
+        <ul class="mg-footer-links">
+          <li><a>Coleções</a></li>
+          <li><a>Nova estação</a></li>
+          <li><a>Lookbook</a></li>
+          <li><a>Sobre nós</a></li>
+          <li><a>Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="mg-footer-col-title">Atendimento</p>
+        <ul class="mg-footer-links">
+          <li><a>Frete e prazo</a></li>
+          <li><a>Trocas e devoluções</a></li>
+          <li><a>Guia de medidas</a></li>
+          <li><a>Política de privacidade</a></li>
+          <li><a>Fale conosco</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mg-footer-bottom">
+      <p class="mg-footer-copy">© 2025 Margarida. Todos os direitos reservados. CNPJ 00.000.000/0001-00</p>
+      <p class="mg-footer-selo">✦ Feito com fé no Brasil</p>
+    </div>
+  </footer>
+
+</div>
